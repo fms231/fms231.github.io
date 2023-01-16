@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Markdown基本语法 - MarkDown基本语法</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fms" /><meta name="description" content="标题一 标题二 标题三 标题四 标题五 标题六 总共六级标题 为什么 会这样 这是一段引用 区块 最外层 中间层 最内层 列表 区块1 区块2 把大象放进冰箱: 打开冰箱 美的 冰" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="http://fms231.github.io/post/my-first-post/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Markdown基本语法" />
+<meta property="og:description" content="标题一 标题二 标题三 标题四 标题五 标题六 总共六级标题 为什么 会这样 这是一段引用 区块 最外层 中间层 最内层 列表 区块1 区块2 把大象放进冰箱: 打开冰箱 美的 冰" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://fms231.github.io/post/my-first-post/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-15T16:52:14+08:00" />
+<meta property="article:modified_time" content="2023-01-15T16:52:14+08:00" />
+<meta itemprop="name" content="Markdown基本语法">
+<meta itemprop="description" content="标题一 标题二 标题三 标题四 标题五 标题六 总共六级标题 为什么 会这样 这是一段引用 区块 最外层 中间层 最内层 列表 区块1 区块2 把大象放进冰箱: 打开冰箱 美的 冰"><meta itemprop="datePublished" content="2023-01-15T16:52:14+08:00" />
+<meta itemprop="dateModified" content="2023-01-15T16:52:14+08:00" />
+<meta itemprop="wordCount" content="976">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Markdown基本语法"/>
+<meta name="twitter:description" content="标题一 标题二 标题三 标题四 标题五 标题六 总共六级标题 为什么 会这样 这是一段引用 区块 最外层 中间层 最内层 列表 区块1 区块2 把大象放进冰箱: 打开冰箱 美的 冰"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Markdown</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Markdown</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Markdown基本语法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#标题一">标题一</a>
+      <ul>
+        <li><a href="#标题二">标题二</a>
+          <ul>
+            <li><a href="#标题三">标题三</a></li>
+          </ul>
+        </li>
+        <li><a href="#表格">表格</a></li>
+        <li><a href="#链接">链接</a></li>
+        <li><a href="#代码块">代码块</a></li>
+        <li><a href="#脚注">脚注</a></li>
+        <li><a href="#链接-1">链接</a></li>
+        <li><a href="#应用链接">应用链接</a>
+          <ul>
+            <li><a href="#指定图片大小">指定图片大小</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="标题一">标题一</h1>
+<h2 id="标题二">标题二</h2>
+<h3 id="标题三">标题三</h3>
+<h4 id="标题四">标题四</h4>
+<h5 id="标题五">标题五</h5>
+<h6 id="标题六">标题六</h6>
+<p>总共六级标题</p>
+<p>为什么
+会这样</p>
+<blockquote>
+<p>这是一段引用
+区块</p>
+</blockquote>
+<blockquote>
+<p>最外层</p>
+<blockquote>
+<p>中间层</p>
+<blockquote>
+<p>最内层</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ol>
+<li>列表
+<blockquote>
+<p>区块1
+区块2</p>
+</blockquote>
+</li>
+</ol>
+<p>把大象放进冰箱:</p>
+<ol>
+<li>打开冰箱
+<ol>
+<li>美的
+<ol>
+<li>冰箱</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>准备大象</li>
+<li>把大象放进冰箱</li>
+<li>关闭冰箱</li>
+</ol>
+<p><em>斜体</em></p>
+<p><strong>加粗</strong></p>
+<p><em><strong>粗斜体</strong></em></p>
+<hr>
+<hr>
+<p><del>删除</del></p>
+<p>无序列表:</p>
+<ul>
+<li>波奇</li>
+<li>喜多</li>
+<li>虹夏</li>
+<li>凉</li>
+</ul>
+<ol>
+<li>第一项
+<ul>
+<li>第一项嵌套第一个元素</li>
+<li>第一项嵌套第二个元素</li>
+</ul>
+</li>
+<li>第二项
+<ul>
+<li>第二项嵌套第一个元素</li>
+</ul>
+</li>
+<li>第三项</li>
+</ol>
+<p><img src="/img/boqi.jpg" alt=""></p>
+<p><em>波奇酱</em></p>
+<p>$$
+\lim_{x \to 0}\frac{sin(x)}{x}=1
+$$</p>
+<p>在一段文字中插入 $\lim_{x \to 0}\frac{sin(x)}{x}=1$ 公式</p>
+<h2 id="表格">表格</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">大明</th>
+<th style="text-align:center">小明</th>
+<th style="text-align:right">姚明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">18岁</td>
+<td style="text-align:center">19岁</td>
+<td style="text-align:right">20岁</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">左对齐</td>
+<td style="text-align:center">居中对齐</td>
+<td style="text-align:right">右对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="链接">链接</h2>
+<p>这是一个<a href="https://www.bilibili.com/video/BV1si4y1472o/?spm_id_from=333.337.search-card.all.click&amp;vd_source=5c5513cfe16e7142b8bbdb99ab95f2fa">链接</a></p>
+<h2 id="代码块">代码块</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;hello world&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>横线</p>
+<hr>
+<p>明天要做的事:</p>
+<ul>
+<li><input disabled="" type="checkbox"> 吃饭</li>
+<li><input disabled="" type="checkbox"> 睡觉</li>
+<li><input checked="" disabled="" type="checkbox"> 学习</li>
+</ul>
+<hr>
+<h2 id="脚注">脚注</h2>
+<p>一键三连<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="链接-1">链接</h2>
+<p><a href="baidu.com" title="一个搜索引擎">百度</a></p>
+<h2 id="应用链接">应用链接</h2>
+<p><a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a>,<a href="baidu.com" title="一个搜索引擎">百度</a></p>
+<p>请参考<a href="#%E6%A0%87%E9%A2%98%E4%B8%80">标题一</a></p>
+<p>URL:
+<a href="https://www.bilibili.com/video/BV1JA411h7Gw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=5c5513cfe16e7142b8bbdb99ab95f2fa">https://www.bilibili.com/video/BV1JA411h7Gw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=5c5513cfe16e7142b8bbdb99ab95f2fa</a></p>
+<hr>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/f2deb48f8c5494eef01f5f853ba3f7fe9925bd31d0ab?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5" alt="孤独摇滚" title="孤独摇滚"></p>
+<h3 id="指定图片大小">指定图片大小</h3>
+<img decoding="async" src="https://bkimg.cdn.bcebos.com/pic/f2deb48f8c5494eef01f5f853ba3f7fe9925bd31d0ab?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5" width="50%">
+<p>行内代码 <code>printf()</code>
+<u>下划线</u>
+😄</p>
+<h4 id="下标">下标</h4>
+<p>H~2~O</p>
+<h4 id="上标">上标</h4>
+<p>X^2^</p>
+<p>==高亮==</p>
+<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">A[方形] --&gt;B(圆角)
+</span></span><span class="line"><span class="cl">    B --&gt; C{条件a}
+</span></span><span class="line"><span class="cl">    C --&gt;|a=1| D[结果1]
+</span></span><span class="line"><span class="cl">    C --&gt;|a=2| E[结果2]
+</span></span><span class="line"><span class="cl">    F[横向流程图]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TD
+</span></span><span class="line"><span class="cl">A[方形] --&gt; B(圆角)
+</span></span><span class="line"><span class="cl">    B --&gt; C{条件a}
+</span></span><span class="line"><span class="cl">    C --&gt; |a=1| D[结果1]
+</span></span><span class="line"><span class="cl">    C --&gt; |a=2| E[结果2]
+</span></span><span class="line"><span class="cl">    F[竖向流程图]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">st=&gt;start: 开始框
+</span></span><span class="line"><span class="cl">op=&gt;operation: 处理框
+</span></span><span class="line"><span class="cl">cond=&gt;condition: 判断框(是或否?)
+</span></span><span class="line"><span class="cl">sub1=&gt;subroutine: 子流程
+</span></span><span class="line"><span class="cl">io=&gt;inputoutput: 输入输出框
+</span></span><span class="line"><span class="cl">e=&gt;end: 结束框
+</span></span><span class="line"><span class="cl">st-&gt;op-&gt;cond
+</span></span><span class="line"><span class="cl">cond(yes)-&gt;io-&gt;e
+</span></span><span class="line"><span class="cl">cond(no)-&gt;sub1(right)-&gt;op
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">st=&gt;start: 开始框
+</span></span><span class="line"><span class="cl">op=&gt;operation: 处理框
+</span></span><span class="line"><span class="cl">cond=&gt;condition: 判断框(是或否?)
+</span></span><span class="line"><span class="cl">sub1=&gt;subroutine: 子流程
+</span></span><span class="line"><span class="cl">io=&gt;inputoutput: 输入输出框
+</span></span><span class="line"><span class="cl">e=&gt;end: 结束框
+</span></span><span class="line"><span class="cl">st(right)-&gt;op(right)-&gt;cond
+</span></span><span class="line"><span class="cl">cond(yes)-&gt;io(bottom)-&gt;e
+</span></span><span class="line"><span class="cl">cond(no)-&gt;sub1(right)-&gt;op
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">对象A-&gt;对象B: 对象B你好吗?（请求）
+</span></span><span class="line"><span class="cl">Note right of 对象B: 对象B的描述
+</span></span><span class="line"><span class="cl">Note left of 对象A: 对象A的描述(提示)
+</span></span><span class="line"><span class="cl">对象B--&gt;对象A: 我很好(响应)
+</span></span><span class="line"><span class="cl">对象A-&gt;对象B: 你真的好吗？
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Title: 标题：复杂使用
+</span></span><span class="line"><span class="cl">对象A-&gt;对象B: 对象B你好吗?（请求）
+</span></span><span class="line"><span class="cl">Note right of 对象B: 对象B的描述
+</span></span><span class="line"><span class="cl">Note left of 对象A: 对象A的描述(提示)
+</span></span><span class="line"><span class="cl">对象B--&gt;对象A: 我很好(响应)
+</span></span><span class="line"><span class="cl">对象B-&gt;小三: 你好吗
+</span></span><span class="line"><span class="cl">小三--&gt;&gt;对象A: 对象B找我了
+</span></span><span class="line"><span class="cl">对象A-&gt;对象B: 你真的好吗？
+</span></span><span class="line"><span class="cl">Note over 小三,对象B: 我们是朋友
+</span></span><span class="line"><span class="cl">participant C
+</span></span><span class="line"><span class="cl">Note right of C: 没人陪我玩
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+</span></span><span class="line"><span class="cl">  sequenceDiagram
+</span></span><span class="line"><span class="cl">    participant 张三
+</span></span><span class="line"><span class="cl">    participant 李四
+</span></span><span class="line"><span class="cl">    张三-&gt;王五: 王五你好吗？
+</span></span><span class="line"><span class="cl">    loop 健康检查
+</span></span><span class="line"><span class="cl">        王五-&gt;王五: 与疾病战斗
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">    Note right of 王五: 合理 食物 &lt;br/&gt;看医生...
+</span></span><span class="line"><span class="cl">    李四--&gt;&gt;张三: 很好!
+</span></span><span class="line"><span class="cl">    王五-&gt;李四: 你怎么样?
+</span></span><span class="line"><span class="cl">    李四--&gt;王五: 很好!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>😢
+😎</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>点赞+投币+收藏&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fms</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2023-01-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://fms231.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>fms</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
