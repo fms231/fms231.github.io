@@ -1,0 +1,11 @@
+@font-face {
+    font-family: HongLei;
+    font-display: swap;
+    src: url('../fonts/HongLei.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Alloy;
+    font-display: swap;
+    src: url('../fonts/Alloy.ttf') format('truetype');
+}
