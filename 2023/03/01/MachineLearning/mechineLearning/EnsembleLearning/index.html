@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>集成学习 | Fms231</title><meta name="author" content="fms231"><meta name="copyright" content="fms231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="概念 集成学习归属于机器学习，他是一种训练思路，并不是某种具体的方法或者算法。集成学习的思想是将多个学习器（也称为基学习器）结合在一起，以提高整体性能的一种方法。集成学习的原理是通过结合多个学习器的预测结果，来获得比单个学习器更强大、更鲁棒的模型。 常见方法 Voting Hard Voting 多个学习器投票给出最终的预测结果，以获得最高投票的类别作为最终输出。 Soft Voting 学习器给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集成学习">
+<meta property="og:url" content="https://fms231.github.io/2023/03/01/MachineLearning/mechineLearning/EnsembleLearning/index.html">
+<meta property="og:site_name" content="Fms231">
+<meta property="og:description" content="概念 集成学习归属于机器学习，他是一种训练思路，并不是某种具体的方法或者算法。集成学习的思想是将多个学习器（也称为基学习器）结合在一起，以提高整体性能的一种方法。集成学习的原理是通过结合多个学习器的预测结果，来获得比单个学习器更强大、更鲁棒的模型。 常见方法 Voting Hard Voting 多个学习器投票给出最终的预测结果，以获得最高投票的类别作为最终输出。 Soft Voting 学习器给">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fms231.github.io/img/boqi.jpg">
+<meta property="article:published_time" content="2023-03-01T02:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-01T15:12:49.959Z">
+<meta property="article:author" content="fms231">
+<meta property="article:tag" content="who know">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fms231.github.io/img/boqi.jpg"><link rel="shortcut icon" href="/img/logoicon.png"><link rel="canonical" href="https://fms231.github.io/2023/03/01/MachineLearning/mechineLearning/EnsembleLearning/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: fms231","link":"链接: ","source":"来源: Fms231","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '集成学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-01 23:12:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/_custom/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/boqi.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/band.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Fms231"><img class="site-icon" src="/img/logo.png"/></a></span><div id="he-plugin-simple"> </div><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">集成学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-01T02:00:00.000Z" title="发表于 2023-03-01 10:00:00">2023-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-01T15:12:49.959Z" title="更新于 2024-02-01 23:12:49">2024-02-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Machine-Learning/">Machine Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="集成学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="概念">概念</h1>
+<p>集成学习归属于机器学习，他是一种训练思路，并不是某种具体的方法或者算法。集成学习的思想是将多个学习器（也称为基学习器）结合在一起，以提高整体性能的一种方法。集成学习的原理是通过结合多个学习器的预测结果，来获得比单个学习器更强大、更鲁棒的模型。</p>
+<h1 id="常见方法">常见方法</h1>
+<h2 id="voting">Voting</h2>
+<h3 id="hard-voting">Hard Voting</h3>
+<p>多个学习器投票给出最终的预测结果，以获得最高投票的类别作为最终输出。</p>
+<h3 id="soft-voting">Soft Voting</h3>
+<p>学习器给出概率估计，最终的预测结果是所有学习器概率的平均或加权平均。</p>
+<h2 id="bagging">Bagging</h2>
+<p>在数据集上独立、并行的训练n个模型，如果是回归问题，那么最终的预测结果是这n个模型预测结果的平均值；如果是分类问题，那么最终的预测结果是这n个模型预测结果中最多的那个类别。主要作用是减少过拟合，提高泛化能力。<br>
+随机森林就是一种基于Bagging的方法，使用决策树作为基学习器。<br>
+每个模型是在基于bootstrap sampling的数据集上进行训练的，bootstrap sampling就是从原始数据集中有放回的抽取n个样本（采样一个放回一个采样一个放回一个），作为新的数据集（大概<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mi>e</mi></mfrac><mo>≈</mo><mn>63</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">1-\frac{1}{e} \approx 63\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">6</span><span class="mord">3</span><span class="mord">%</span></span></span></span>的数据集可以采样得到）。这样每个模型的训练数据集都是不同的，这样可以增加模型的多样性，进而提高模型的泛化能力。</p>
+<h2 id="boosting">Boosting</h2>
+<p>在一个学习器训练的过程中，根据前一个学习器的性能来调整样本权重，使得之前被错误分类的样本在后续模型中得到更多关注。Boosting的思想就是将多个弱一点的模型结合在一起，形成一个强大的模型，主要目的是降低偏差。常见的提升算法包括AdaBoost、Gradient Boosting和XGBoost。<br>
+Boosting是按顺序学习n个模型，在第i步训练第i个模型时，计算评估该模型的误差，然后根据这个误差对数据集进行重新采样，让误差大的样本在后一个模型中得到更多关注。重复该操作，最终的预测结果是所有模型预测结果的加权平均。</p>
+<h2 id="stacking-刷榜">Stacking（刷榜）</h2>
+<p>将多个不同的学习器的预测结果作为输入，训练一个元学习器来融合这些结果。这个元学习器能够捕捉到不同基学习器的优势，提高整体性能。<br>
+<img src="/img/ML/stacking.png" alt="Stacking"><br>
+以下是Stacking的主要步骤：</p>
+<ol>
+<li>准备训练数据集：<br>
+将原始的训练数据集分为两部分，一部分用于训练基学习器，另一部分用于训练元学习器。</li>
+<li>训练基学习器：<br>
+使用第一部分的数据集，分别训练多个不同类型的基学习器。这些基学习器可以是任何类型的模型，例如决策树、支持向量机、随机森林等。每个基学习器产生一个独立的预测结果。</li>
+<li>生成第一层的预测结果：<br>
+使用第二部分的数据集，对每个基学习器进行预测。这些基学习器的预测结果构成了新的训练集，被用于训练元学习器。</li>
+<li>训练元学习器：<br>
+使用新的训练集，元学习器学习如何结合基学习器的预测结果。元学习器的目标是最小化整体模型的预测误差。元学习器可以是简单的线性模型，也可以是更复杂的模型，具体取决于问题的性质。</li>
+<li>生成最终预测：<br>
+当需要对新的数据进行预测时，首先使用已训练好的基学习器生成各自的预测结果，然后将这些结果输入到元学习器中，最终得到整体模型的预测输出。</li>
+</ol>
+<p>为了降低偏差bias，可以使用multi-layer Stacking，即在第一层的基学习器之上再加一层基学习器，然后再加一层元学习器。这样可以进一步提高模型的性能，但是也会增加计算开销。<br>
+为了降低方差variance，减少过拟合，可以使用k折交叉验证。首先，将训练数据集分为k个子集，然后每一轮使用k-1个折训练基学习器，使用1个折生成预测结果，重复k轮，每次选择不同的折作为测试集。这样，每个折都有机会充当测试集，而模型在整个数据集上都有机会被评估。最终得到k个基学习器的预测结果。这样可以减少由于随机划分而引入的方差，提供对模型性能更稳健的估计。</p>
+<h2 id="ensemble-of-deep-learning-models">Ensemble of Deep Learning Models</h2>
+<p>深度集成学习，在深度学习领域，也可以使用集成学习的思想。例如，将多个神经网络的预测结果结合，或者通过训练多个不同结构的神经网络并集成它们的输出来提高性能。</p>
+<h1 id="总结">总结</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Reduce</th>
+<th style="text-align:center">Bias</th>
+<th style="text-align:center">Variance</th>
+<th style="text-align:center">Computation Cost</th>
+<th style="text-align:center">Parallelization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Bagging</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td style="text-align:center">Boosting</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">Stacking</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td style="text-align:center">K-fold multi-layer Stacking</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">n * l * k</td>
+<td style="text-align:center">n*k</td>
+</tr>
+</tbody>
+</table>
+<p>l为多层stacking的层数，k为折数，n为基学习器个数。<br>
+集成学习通常能够在各种情况下提高模型的性能，降低过拟合风险，并提高模型的鲁棒性。然而，需要注意的是，集成学习可能增加了模型的复杂性和计算开销。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://fms231.github.io">fms231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://fms231.github.io/2023/03/01/MachineLearning/mechineLearning/EnsembleLearning/">https://fms231.github.io/2023/03/01/MachineLearning/mechineLearning/EnsembleLearning/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fms231.github.io" target="_blank">Fms231</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/boqi.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/01/MachineLearning/mathBasic/Calculus/" title="微积分"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">微积分</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/01/MachineLearning/mathBasic/LinearAlgebra/" title="线性代数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">线性代数</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/boqi.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fms231</div><div class="author-info__description">晚来天欲雪，能饮一杯无。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/fms231"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fms231" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1712541185@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">宝剑锋从磨砺出，梅花香自苦寒来。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">常见方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#voting"><span class="toc-number">2.1.</span> <span class="toc-text">Voting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hard-voting"><span class="toc-number">2.1.1.</span> <span class="toc-text">Hard Voting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#soft-voting"><span class="toc-number">2.1.2.</span> <span class="toc-text">Soft Voting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bagging"><span class="toc-number">2.2.</span> <span class="toc-text">Bagging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#boosting"><span class="toc-number">2.3.</span> <span class="toc-text">Boosting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stacking-%E5%88%B7%E6%A6%9C"><span class="toc-number">2.4.</span> <span class="toc-text">Stacking（刷榜）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ensemble-of-deep-learning-models"><span class="toc-number">2.5.</span> <span class="toc-text">Ensemble of Deep Learning Models</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/01/GAN/CGAN/" title="Conditional GAN">Conditional GAN</a><time datetime="2024-02-01T12:00:00.000Z" title="发表于 2024-02-01 20:00:00">2024-02-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/01/Tips/VRAM_RAM/" title="共享GPU内存与专用GPU内存">共享GPU内存与专用GPU内存</a><time datetime="2024-02-01T02:00:00.000Z" title="发表于 2024-02-01 10:00:00">2024-02-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/leetcode/" title="Leetcode算法">Leetcode算法</a><time datetime="2024-01-08T09:26:36.000Z" title="发表于 2024-01-08 17:26:36">2024-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/05/GAN/GAN_Paper/" title="GAN论文精读"><img src="/img/paper/gan.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAN论文精读"/></a><div class="content"><a class="title" href="/2024/01/05/GAN/GAN_Paper/" title="GAN论文精读">GAN论文精读</a><time datetime="2024-01-05T05:33:33.000Z" title="发表于 2024-01-05 13:33:33">2024-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/03/hello-world/" title="Hello World">Hello World</a><time datetime="2024-01-03T13:45:32.688Z" title="发表于 2024-01-03 21:45:32">2024-01-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/band.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By fms231</div><div class="footer_custom_text">Chance favors the prepared mind!!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="421423808" data-server="netease" data-type="song" data-fixed="true" data-autoplay="true"> </div><script src="/js/custom.js"></script><script src="/js/weather.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
