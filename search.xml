@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Set</title>
+      <link href="/Java/Collection/Set/f8b0be59a301/"/>
+      <url>/Java/Collection/Set/f8b0be59a301/</url>
+      
+        <content type="html"><![CDATA[<p>哈希值：一个int类型的数值，Java中每个对象都有一个哈希值，调用hashCode()方法可以获取对象的哈希值。<br>同一个对象多次调用hashCode()方法返回的哈希值是相同的，不同对象的哈希值可能相同(哈希碰撞)</p><h1 id="HashSet-集合的底层原理"><a href="#HashSet-集合的底层原理" class="headerlink" title="HashSet 集合的底层原理"></a>HashSet 集合的底层原理</h1><p>基于哈希表实现，哈希表是一种增删改查数据，性能都较好的数据结构<br>jdk8之前：HashSet的底层原理，基于哈希表：数组+链表组成</p><ol><li>创建一个默认长度为16的数组，默认加载因子0.75</li><li>使用元素的哈希值对数组长度取模，得到存储位置</li><li>如果该位置没有元素，则直接存储</li><li>如果该位置有元素，则调用equals()方法比较哈希值和元素是否相同，如果相同则不存储，如果不同则存储（jdk 8 之前，新元素存入数组，占老元素的位置，老元素挂在新元素下面， jdk 8 之后，新元素直接挂在老元素下面）</li></ol><mark class="hl-label red">如果数组快占满了，会出现什么问题，该怎么办?</mark><br /><mark class="hl-label pink">如果数组快占满了，则会导致链表过长，导致查询性能降低。此时哈希表会扩容，一单占有的元素个数超过了数组长度*加载因子，则会扩容为原来的2倍，并将原来的元素重新存储到新的数组中。如果链表过长，而数组没有占满，在jdk8之后，当链表长度超过8，且数组长度>=64时，自动将链表转为红黑树（数组还在），以提高查询性能。</mark><p>jdk8之后：HashSet的底层原理，基于哈希表：数组+链表+红黑树</p><h1 id="LinkedHashSet-集合的底层原理"><a href="#LinkedHashSet-集合的底层原理" class="headerlink" title="LinkedHashSet 集合的底层原理"></a>LinkedHashSet 集合的底层原理</h1><h1 id="TreeSet-集合的底层原理"><a href="#TreeSet-集合的底层原理" class="headerlink" title="TreeSet 集合的底层原理"></a>TreeSet 集合的底层原理</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Collection </tag>
+            
+            <tag> Set </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>List</title>
+      <link href="/Java/Collection/List/6ed909c87df8/"/>
+      <url>/Java/Collection/List/6ed909c87df8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ArrayList-集合的底层原理"><a href="#ArrayList-集合的底层原理" class="headerlink" title="ArrayList 集合的底层原理"></a>ArrayList 集合的底层原理</h1><p>有序、可重复、有索引<br>基于数组实现，查询速度快（根据索引查）、删除效率低、添加效率极低<br>创建过程：利用无参构造器创建ArrayList对象时，会创建一个默认长度为0的空数组。当第一次添加元素时，底层会创建一个长度为10的数组，并将第一个元素添加到数组中。存满之后，会扩容1.5倍，如果一次添加多个元素，1.5倍还放不下，则新创建数组的长度以实际为准</p><h1 id="LinkedList-集合的底层原理"><a href="#LinkedList-集合的底层原理" class="headerlink" title="LinkedList 集合的底层原理"></a>LinkedList 集合的底层原理</h1><p>有序、可重复、有索引<br>基于双链表实现，查询速度慢（根据索引查）、增删效率较高、对首尾元素进行增删改查的速度是极快的。<br>可以实现队列、设计栈</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> List </tag>
+            
+            <tag> Collection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>集合</title>
+      <link href="/Java/Collection/%E9%9B%86%E5%90%88/7bd9e3c5de9c/"/>
+      <url>/Java/Collection/%E9%9B%86%E5%90%88/7bd9e3c5de9c/</url>
+      
+        <content type="html"><![CDATA[<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>主要分为两组：单列集合、双列集合</p><p>Collection接口和常用方法<br>add:添加一个元素<br>remove:移除元素<br>contains:是否包含某个元素<br>size:集合大小<br>isEmpty:是否为空<br>clear:清空集合<br>addAll:添加多个元素<br>containsAll:是否包含多个元素<br>removeAll:移除多个元素</p><h1 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h1><ul><li>迭代器</li><li>增强for循环</li><li>lambda表达式：forEach</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>高性能收集器</title>
+      <link href="/Java/JVM/%E9%AB%98%E6%80%A7%E8%83%BD%E6%94%B6%E9%9B%86%E5%99%A8/98c3da5ef3fc/"/>
+      <url>/Java/JVM/%E9%AB%98%E6%80%A7%E8%83%BD%E6%94%B6%E9%9B%86%E5%99%A8/98c3da5ef3fc/</url>
+      
+        <content type="html"><![CDATA[<h1 id="分区收集器-G1、ZGC、Shenandoah"><a href="#分区收集器-G1、ZGC、Shenandoah" class="headerlink" title="分区收集器 G1、ZGC、Shenandoah"></a>分区收集器 G1、ZGC、Shenandoah</h1><div class="timeline pink"><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>GC体系的变化</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2018-09</p></div>        </div>        <div class='timeline-item-content'><p>JDK11发布，引入<code>Epsilon</code>垃圾回收器，又被称为<code>&quot;No-0p（无操作） &quot;</code>回收器。同时，引入了可伸缩的低延迟垃圾回收器<code>ZGC（Experimental）</code>。</p></div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2019-03</p></div>        </div>        <div class='timeline-item-content'><p>JDK12发布，增强<code>G1</code>收集器，实现自动返还未用堆内存给操作系统。同时，引入了低停顿时间的收集器<code>ShenandoahGC（Experimental）</code>。</p></div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2019-09</p></div>        </div>        <div class='timeline-item-content'><p>JDK13发布，增强<code>ZGC</code>收集器，实现自动返还未用堆内存给操作系统。</p></div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2020-03</p></div>        </div>        <div class='timeline-item-content'><p>JDK14发布，剔除了<code>CMS</code>收集器，同时扩展<code>ZGC</code>在macOS和Windows上的应用，增强<code>G1</code>支持<code>NUMA</code>架构。</p></div>      </div></div><h1 id="开创GC“分区回收”-G1-Garbage-First-Garbage-Collector（垃圾优先收集器）"><a href="#开创GC“分区回收”-G1-Garbage-First-Garbage-Collector（垃圾优先收集器）" class="headerlink" title="开创GC“分区回收” - G1 Garbage-First Garbage Collector（垃圾优先收集器）"></a>开创GC“分区回收” - G1 Garbage-First Garbage Collector（垃圾优先收集器）</h1><p>G1收集器将堆空间划分为“物理分区不分代”的内存结构<br>G1收集器的特性：</p><ul><li>与CMS收集器一样，能够与用户线程同时执行，完成并发收集</li><li>GC过程会有整理内存的过程，不会产生内存碎片，并且整理空闲内存速度更快</li><li>GC发生时，停顿时间可控，可以让程序更大程度上追求低延迟</li><li>追求低延迟的同时，尽可能会保证高吞吐量</li><li>对于堆的未使用内存可以返还给操作系统</li></ul><p>每个分区可能是年轻代也可能是老年代，但是在同一时刻只能属于某个代。在运行时，每个分区都会被打上唯一的分区标示。<br>不过在G1收集器中，年轻代Eden区，幸存区Survivor、老年代Old区这些概念依旧还存在，但却成为了逻辑上的概念，好处在于：可以复用之前分代框架的逻辑，同时也满足了Java对象<code>朝生夕死</code>的特性<br>在G1收集器中，内存空间会被划分为一个个的Region区，这样JVM不需要再为堆空间分配连续的内存，堆空间可以是不连续物理内存来组成的Region的集合。同时，有的Region区内垃圾对象特别多，有的分区内垃圾对象很少，G1可以优先回收垃圾对象特别多的Region区，这样可以花费较少的时间来回收垃圾，这也就是G1名字的由来，即垃圾优先收集器。<br>G1将Java堆划分为多个大小相等的独立的Region区域，不过在HotSpot的源码TARGET_REGION_NUMBER定义了Region区的数量限制为2048个（实际上允许超过这个值，但是超过这个数量后，堆空间会变的难以管理）。<br>G1中的年老代晋升条件和之前的无差，达到年龄阈值的对象会被转入年老代的Region区中，不同的是对于大对象的分配，在G1中不会让大对象进入年老代，在G1中由专门存放大对象的Region区叫做Humongous区，如果在分配对象时，判定出一个对象属于大对象，那么则会直接将其放入Humongous区存储。<br>在G1中，判定一个对象是否为大对象的方式为：对象大小是否超过单个普通Region区的50%，如果超过则代表当前对象为大对象，那么该对象会被直接放入Humongous区。比如：目前是8GB的堆空间，每个Region区的大小为4MB，当一个对象大小超过2MB时则会被判定为属于大对象。如果程序运行过程中出现一个“巨型对象”，当一个Humongous区存不下时，可能会横跨多个Region区存储它。<br>Humongous区存在的意义：可以避免一些“短命”的巨型对象直接进入年老代，节约年老代的内存空间，可以有效避免年老代因空间不足时的GC开销。<br>当堆空间发生全局GC(FullGC)时，除开回收新生代和年老代之外，也会对Humongous区进行回收。</p><p>G1中新生代初始化为堆内存的5%，最大是占用堆内存的60%。Eden区中的对象有95%以上都熬不过一个垃圾回收。</p><h2 id="G1收集器GC类型"><a href="#G1收集器GC类型" class="headerlink" title="G1收集器GC类型"></a>G1收集器GC类型</h2><h3 id="YoungGC"><a href="#YoungGC" class="headerlink" title="YoungGC"></a>YoungGC</h3><p>YoungGC并非说Eden区放满了就会立马被触发，在G1中，当新生代区域被用完时，G1首先会大概计算一下回收当前的新生代空间需要花费多少时间，如果回收时间远远小于参数-XX:MaxGCPauseMills设定的值，那么不会触发YoungGC，而是会继续为新生代增加新的Region区用于存放新分配的对象实例。直至某次Eden区空间再次被放满并经过计算后，此次回收的耗时接近-XX:MaxGCPauseMills参数设定的值，那么才会触发YoungGC。<br>G1收集器中的新生代收集，依旧保留了分代收集器的特性，当YoungGC被触发时，首先会将目标Region区中的存活对象移动至幸存区空间（被打着Survivor-from区标志的Region）。同时达到晋升年龄标准的对象也会被移入至年老代Region中存储。<br>G1收集器在发生YoungGC时，复制移动对象时是采用的多线程并行复制，以此来换取更优异的GC性能。用户如若未曾显式通过-XX:MaxGCPauseMills参数设定GC预期回收停顿时间值，那么G1默认为200ms。</p><h3 id="MixedGC"><a href="#MixedGC" class="headerlink" title="MixedGC"></a>MixedGC</h3><p>MixedGC翻译过来的意思为混合型GC，而并非是指FullGC。当整个堆中年老代的区域占有率达到参数-XX:InitiatingHeapOccupancyPercent设定的值后触发MixedGC，发生该类型GC后，会回收所有新生代Region区、部分年老代Region区（会根据期望的GC停顿时间选择合适的年老代Region区优先回收）以及大对象Humongous区。<br>正常情况下，G1垃圾收集时会先发生MixedGC，主要采用复制算法，在GC时先将要回收的Region区中存活的对象拷贝至别的Region区内，拷贝过程中，如果发现没有足够多的空闲Region区承载拷贝对象，此时就会触发一次Full GC</p><h3 id="FullGC"><a href="#FullGC" class="headerlink" title="FullGC"></a>FullGC</h3><p>当整个堆空间中的空闲Region不足以支撑拷贝对象或由于元数据空间满了等原因触发，在发生FullGC时，G1首先会停止系统所有用户线程，然后采用单线程进行标记、清理和压缩整理内存，以便于清理出足够多的空闲Region来供下一次MixedGC使用。但该过程是单线程串行收集的，因此这个过程非常耗时的(ShenandoahGC中采用了多线程并行收集)。</p><h2 id="G1收集器垃圾回收过程"><a href="#G1收集器垃圾回收过程" class="headerlink" title="G1收集器垃圾回收过程"></a>G1收集器垃圾回收过程</h2><ol><li>初始标记InitialMark：先触发STW，然后使用单条GC线程快速标记<strong>GCRoots</strong>直连的对象。</li><li>并发标记ConcurrentMarking：与CMS的并发标记过程一致，采用多条GC线程与用户线程共同执行，根据Root根节点标记所有对象</li><li>最终标记Remark：同CMS的重新标记阶段，主要是为了纠正并发标记阶段因用户操作导致的<strong>错标、误标、漏标对象</strong></li><li>筛选回收Cleanup：先对各个Region区的回收价值会成本进行排序，找出<code>回收价值最大</code>的Region优先回收</li></ol><p>G1收集器正是由于「筛选回收」阶段的存在，所以才得以冠名「垃圾优先收集器」。在该阶段中，对各个Region区排序后，G1会根据用户指定的期望停顿时间（即-XX:MaxGCPauseMillis参数设定的值）选择「价值最大且最符合用户预期」的Region区进行回收</p><mark class="hl-label pink">假设此时年老代空间共有800个Region区，并且都满了，所以此刻会触发GC。但根据GC的预期停顿时间值，本次GC只能允许停顿200ms，而G1经过前面的成本计算后，大致可推断出：本次GC回收600个Region区恰好停顿时间可控制在200ms左右，那么最终就会以「回收600个Region区」为基准触发GC，这样则能尽量确保GC导致的停顿时间可以被控制在我们指定的范围之内。</mark><p><strong>筛选回收阶段在G1收集器中是会停止所有用户线程后，采用多线程并行回收的。但实际上这个过程中可以与用户线程一起执行做到并发收集的，但因为G1只回收一部分Region区，停顿时间是可控的，因此停止用户线程后回收效率会大幅度提高。</strong><br>但自G1开始，包括之后的ZGC、ShenandoahGC收集器，从每个Region区角度看来是采用的复制算法，但从堆空间整体看来，则是采用了标-整算法，这也是所谓的“局部复制，全局标-整”。这两种算法无论是那种都不会造成内存碎片产生，带来的好处是：在为大对象进行内存分配时，不会因为找不到连续的内存空间提前触发下一次GC，有利于程序长期运行，尤其是在大内存情况下的堆空间，带来的优势额外明显。<br>不过在内存较小的堆空间情况下，CMS的表现会优于G1收集器，平衡点在6~8GB左右。</p><h2 id="G1中的三色标记-漏标问题解决方案剖析"><a href="#G1中的三色标记-漏标问题解决方案剖析" class="headerlink" title="G1中的三色标记-漏标问题解决方案剖析"></a>G1中的三色标记-漏标问题解决方案剖析</h2><p>CMS收集器拉开了并发收集的新序幕，而并发收集的核心在于三色标记算法，但三色标记又注定着会出现漏标问题。<br>G1收集器中解决三色算法漏标问题的手段：<code>STAB + 写屏障</code>。</p><h3 id="STAB-snapshot-at-the-beginning"><a href="#STAB-snapshot-at-the-beginning" class="headerlink" title="STAB (snapshot at the beginning)"></a>STAB (snapshot at the beginning)</h3><p>存在的意义是为了维护G1收集器GC-并发收集的正确性。保证存活的对象不被回收，保证回收的都是垃圾。如果是独占式收集，也就是发生STW后串行回收的方式，那GC时能够确保100%的正确性，但如若收集过程是与用户线程并发执行的，GC线程一边标记，用户线程一边执行，因而堆中的对象引用会存在变更，出现不稳定因素，最终导致标记的正确性无法得到保障。而为了解决该问题，在G1收集器中则引入了STAB机制。</p><h3 id="写屏障"><a href="#写屏障" class="headerlink" title="写屏障"></a>写屏障</h3><h1 id="ZGC"><a href="#ZGC" class="headerlink" title="ZGC"></a>ZGC</h1><p>无论是逻辑上还是物理上都不在保留分代的概念</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>作者：竹子爱熊猫<br>链接：<a href="https://juejin.cn/post/7080030329922125854">https://juejin.cn/post/7080030329922125854</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>垃圾回收</title>
+      <link href="/Java/JVM/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/8da5a74db1f8/"/>
+      <url>/Java/JVM/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/8da5a74db1f8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GC关注JVM的哪里？"><a href="#GC关注JVM的哪里？" class="headerlink" title="GC关注JVM的哪里？"></a>GC关注JVM的哪里？</h1><p>程序计数器、虚拟机栈、本地方法栈三个区域随线程而生、伴线程而亡。运行期间，栈道每个栈帧所需空间大小，其实在编译器就可大致确定，因此这几个区域的内存分配和回收都具备确定性，所分配的区域会随着线程或方法栈帧的销毁而随之回收。<br>而Java堆和元数据空间则不同，这两块区域是运行时数据区中的共享区域，并且由于多态概念的存在，在运行时，一个类不同的子类实例，所需的内存空间是不同的，也包括一个方法不同的方法版本所需的空间也是不同的，只有在运行时才能知道具体创建哪些对象，这部分区域的内存分配和回收都是动态的，GC机制关注的就是这块区域。</p><h1 id="GC如何判断存活对象？"><a href="#GC如何判断存活对象？" class="headerlink" title="GC如何判断存活对象？"></a>GC如何判断存活对象？</h1><h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><p>很好理解，创建的每个对象都携带一个引用计数，主要用于记录自身的引用情况。当一个指针指向该当前对象时，该计数器会+1。当一个对象的计数器为0时，那么该对象会被当成“垃圾”，进行回收。</p><mark class="hl-label red">优点</mark><mark class="hl-label pink">实现简单，垃圾便于辨识，判断效率高，回收没有延迟性</mark><br /><mark class="hl-label red">缺点</mark><mark class="hl-label pink">需要额外的存储计数器，每次引用指向或者消失时都需要同步更新计数器，增加了存储成本会时间开销，最致命的一点是无法处理两个对象相互引用这种引用循环的状况</mark><p>由于相互引用导致各自的引用计数器都会为1，所以导致GC无法回收这两个对象，最终造成这两个对象所占用的空间发生内存泄漏。由于该问题的存在，所以Java并没有采用这种算法。</p><h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><p>在GC发生时，会以GC Roots作为根节点，然后从上至下的方式进行搜索分析，搜索走过的路线则被称为Reference Chain引用链。当一个对象没有任何引用链相连时，则会被判定为该对象时不可达的，即代表着此对象不可用，最终该对象会被判定为“垃圾”对象等待回收</p><h3 id="可以作为GC-Roots的对象"><a href="#可以作为GC-Roots的对象" class="headerlink" title="可以作为GC Roots的对象"></a>可以作为GC Roots的对象</h3><ul><li>虚拟机栈中引用的对象</li><li>元数据空间中类静态属性引用的对象</li><li>元空间运行时常量池中常量引用的对象</li><li>本地方法栈中JNI（native）中引用的对象</li></ul><p>除开上述中的四大类对象可以被作为根节点外，也包括被synchronized持有的对象、JVM内部的一些引用对象（如类加载器、异常类对象等）都可以作为根节点对象。</p><h3 id="可达性分析算法标记过程"><a href="#可达性分析算法标记过程" class="headerlink" title="可达性分析算法标记过程"></a>可达性分析算法标记过程</h3><p>可达性分析算法中会以GC Roots节点作为根节点向下搜索，可以被搜索到的对象则为存活对象，而当一些对象没有任何一条搜索链可以到达时，该对象则为“可回收对象”</p><h2 id="对象的finalization机制"><a href="#对象的finalization机制" class="headerlink" title="对象的finalization机制"></a>对象的finalization机制</h2><p>Java对象可触及性分为三类</p><ol><li>可触及的，存在于引用链上的对象则是可触及对象，也就是指通过根节点时可以找到的对象</li><li>可复活的，一旦当一个对象的所有引用被释放，那么它就会处于可复活状态，因为在finalize()中可能复活该对象</li><li>不可触及的，在finalize()执行后，对象会进入不可触及状态，从此该对象没有机会再次复活，只能等待被GC机制回收</li></ol><p>当垃圾回收器发现一个对象没有引用指向时，那么在GC之前，总会先调用这个对象的finalize()方法。但如果该对象所属的类没有重写finalize()方法或已经执行过一次该方法了，最终则不会再执行finalize()方法。<br>如果一个对象没了引用，但是重写了finalize()方法并且未被执行过，那么该对象会被插入到F-Queue队列中，该队列是JVM自动创建的一个队列，由低优先级的Finalizer线程执行其finalize()方法。<br>finalize()方法是一个对象实例最后的复活机会，因为GC机制会二次对F-Queue队列中的对象进行标记。如果一个对象执行finalize()方法过程中，与引用链上的任何一个对象建立了联系，那么该对象会被移出队列，然后标记为存活对象。</p><mark class="hl-label pink">1.执行过一次finalize()方法的对象再也没有机会进入到F-Queue队列中，当执行过一次之后finalize()方法不会再次被调用，对象会直接变成不可触及的状态。</mark><br /><mark class="hl-label pink">2.finalize()方法的执行具备不确定性，JVM只会保证对象的finalize()方法会调用，但不保证finalize()方法100%能执行完毕。比如此时，Finalizer线程正在执行一个对象finalize()方法，但是其内部的逻辑执行比较耗时，而此时堆内存严重不足（已用内存达到98%以上）时，GC会强制回收掉该队列中的对象。也就相当于finalize()方法本来是对象的最后抢救机会，结果抢救过程中因为某些意外因素，对象直接结束了。</mark><h1 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h1><p>垃圾回收算法一般在堆可用内存不足的情况下会被触发，通常来说，它们首先会先停止应用程序（STW：Stop The World），也就是将JVM中所有的用户线程暂停，这样可以保持堆内存在该时间段内不会发生新的变化，能够在最大程度上保证结果的准确性。</p><h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>在标记阶段会根据可达性分析算法，通过根节点标记堆中所有的可达对象，而这些对象则称为堆中存活对象，反之，未被标记的则为垃圾对象。在清除阶段，会对于所有未标记的对象进行清除。同时为了方便下次GC，在清除操作完成之后，会将前面存活对象的GC标志位复位，也就是会将标记从1还原成为标记的0<br>标记-清除算法是最初的GC算法，因为在标记阶段需要停下所有用户线程，也就是发生STW，而标记的时候又需要遍历整个堆空间中的所有GcRoots，所以耗时比较长，对于客户端而言，可能会导致GC发生时，造成很长一段时间内无响应。同时，因为堆空间中的垃圾对象是会分散在内存的各个角落，所以一次GC之后，会造成大量的内存碎片，也就是通过标-清算法清理出来的内存是不连续的，为了解决这个问题，JVM就不得不再额外维持一个内存的空闲列表，这又是一种开销。而且在分配数组对象或大对象时，连续的内存空间资源又会变得很匮乏。</p><h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>复制算法与前面的标-清算法相比，它就可以很好的保证内存回收之后的内存整齐度。因为复制算法会将JVM中原有的堆内存分为两块，在同一时刻只会使用一块内存用于对象分配。在发生GC时，首先会将使用的那块内存区域中的存活对象复制到未使用的这块内存中。等复制完成之后，对当前使用的这块内存进行全面清除回收，清除完成之后，交换两块内存之间的角色，最后GC结束。<br>由于每次GC都是直接对半边区域进行回收，所以回收之后不需要考虑内存碎片的复杂情况，在内存分配时直接可以使用简单高效的<code>指针碰撞</code>方式分配对象。<br>但这种算法最大的问题在于对内存的浪费，因为在实际内存分配时只会使用一块内存，所以在实际分配时，内存直接缩水一半，这是比较头疼的事情。同时，存活的对象在GC发生时，还需要复制到另一块内存区域，因此对象移动的开销也需要考虑在内，所以想要使用这种算法，最起码对象的存活率要非常低才行。</p><h2 id="标记-整理算法-标记-压缩算法"><a href="#标记-整理算法-标记-压缩算法" class="headerlink" title="标记-整理算法(标记-压缩算法)"></a>标记-整理算法(标记-压缩算法)</h2><p>标-整算法适用于存活率较高的场景（适合于老年代），它是建立在标-清算法的基础上做了优化。标-整算法也会分为两个阶段，分别为标记阶段、整理阶段：</p><mark class="hl-label pink">标记阶段：和标-清算法一样。在标记阶段时也会基于GcRoots节点遍历整个内存中的所有对象，然后对所有存活对象做一次标记。</mark><br /><mark class="hl-label pink">整理阶段：在整理阶段该算法并不会和标-清算法一样简单的清理内存，而是会将所有存活对象移动（压缩）到内存的一端，然后对于存活对象边界之外的内存进行统一回收。</mark><p>经过标-整算法之后的堆空间会变成整齐的内存，因为被标记为存活的对象都会被压缩到内存的一端。如此一来，当我们需要给新对象分配内存时，JVM只需要持有一个内存的起始地址即可，也就是保留一根指针指向已用内存和空闲内存的分割点，也就是可以直接采用指针碰撞的方式进行内存分配，这比维护一个空闲列表显然少了许多开销。</p><h1 id="垃圾收集算法总结"><a href="#垃圾收集算法总结" class="headerlink" title="垃圾收集算法总结"></a>垃圾收集算法总结</h1><ul><li>收集速度：复制算法 &gt; 标-清算法 &gt; 标-整算法</li><li>内存整齐度：复制算法 &#x3D; 标-整算法 &gt; 标-清算法</li><li>内存利用率：标-整算法 &gt; 标-清算法 &gt; 复制算法</li></ul><h2 id="分代收集策略"><a href="#分代收集策略" class="headerlink" title="分代收集策略"></a>分代收集策略</h2><p>新生代：一般使用复制算法，因为在新生代中的对象几乎绝大部分都是朝生夕死的，每次GC发生后只会有少量对象存活，这种情况下采用复制算法无疑是个不错的选择，付出一定的内存空间开销以及少量存活对象的移动开销，换取内存的整齐度以及可观收集效率，这很明显是个“划得来的买卖”。<br>年老代：一般采用标-整算法或标-清算法，但绝大多数年老代GC器都会选择采用标-整算法，因为毕竟标-清算法会导致大量的内存碎片产生，在年老代对象分配时，内存不完整可能会导致大对象分配不下而持续触发GC。而标-整算法虽然效率较低，但胜在GC后内存足够整齐，再加上年老代的GC并没有新生代频繁，所以年老代空间采用标-整算法无疑也是个不错的选择。</p><h2 id="分区收集策略"><a href="#分区收集策略" class="headerlink" title="分区收集策略"></a>分区收集策略</h2><p>在JDK1.8及之前的JVM中，堆中间一般会按照对象的生命周期长短划分为新生代、年老代两个空间，分别用于存储不同周期的对象。而在新版本的GC器，如G1、ZGC中，则摒弃了之前物理内存上分代的思想，在运行时并不会直接将堆空间切分为两块区域，而是将整个堆划分为连续且不同的小区间，每一个小区间都独立使用，独立回收，这种回收策略带来的好处是：可以控制一次回收多少个小区间。</p><h1 id="STW-Stop-The-World"><a href="#STW-Stop-The-World" class="headerlink" title="STW Stop The World"></a>STW Stop The World</h1><h2 id="为什么要在GC的时候STW"><a href="#为什么要在GC的时候STW" class="headerlink" title="为什么要在GC的时候STW"></a>为什么要在GC的时候STW</h2><ol><li>尽量避免浮动垃圾的产生</li><li>确保一致性：在整个分析期间，JVM看起来就像被冻结在某个时间点上，不可以出现分析过程中对象引用关系还在不断变化的情况</li></ol><h2 id="STW带来的问题"><a href="#STW带来的问题" class="headerlink" title="STW带来的问题"></a>STW带来的问题</h2><ul><li>客户端长时间无响应问题</li><li>HA系统中的主从切换脑裂问题：如果主机触发GC发生STW，最终造成主机长时间停顿，而备机会监测到主机没有工作，于是备机开始尝试将流量切换到自身来处理，从备机变为了主机。但旧主不工作只是暂时的，因为GC的原因导致暂停一段时间，而当GC完成后，旧主会依旧开始工作，最终造成了整个HA系统中出现了双主情况，形成了脑裂问题，最终影响生产环境。</li><li>上游系统宕机问题：如果当某个工程所在的机器发送GC出现STW时，那么上游系统过来的请求则不会处理，如果STW时间一长，最终很有可能导致上游机器扛不住流量而出现宕机。</li></ul><h1 id="GC类型划分"><a href="#GC类型划分" class="headerlink" title="GC类型划分"></a>GC类型划分</h1><ul><li>新生代收集（MinorGC&#x2F;YoungGC）：只针对新生代的GC，当Eden区满了时触发，Survivor满了并不会触发。</li><li>年老代收集（MajorGC&#x2F;OldGC）：针对年老代空间的GC，不过目前只有CMS存在单独回收年老代的行为。</li><li>混合收集（MixedGC）：指收集范围覆盖<strong>整个新生代空间及部分年老代空间</strong>的GC，目前只有G1存在该行为。</li><li>全面收集(FullGC)：覆盖新生代、年老代以及元数据空间的GC，会对于所有可发生GC的内存进行收集。以下是触发FullGC的原因<ul><li>调用System.gc()时，JVM在内存占用较多时会尝试发生FullGC，但并非100%触发。</li><li>除CMS之外收集器，当年老代不足时也会触发FullGC。</li><li>元数据空间内存不足时，也会触发FullGC。</li><li>对象晋升时年老代空间无法承载晋升对象时也会触发FullGC。</li><li>新生代空间分配担保机制触发时，也会先触发FullGC。<br>JVM空间分配担保策略：确保在Minor GC时，存活的对象能够成功晋升到老年代。如果老年代没有足够的空间来接收新晋升的对象，JVM可能会提前触发一次Full GC来释放空间，或者调整自己的内存分配策略以避免此类情况的发生</li></ul></li></ul><h1 id="安全点好安全区域"><a href="#安全点好安全区域" class="headerlink" title="安全点好安全区域"></a>安全点好安全区域</h1><p>当用户线程执行到安全点或安全区域的代码处，此时发生停止是安全的，后续再次唤醒线程工作时，执行结果也不会因为线程暂停而受到任何影响。</p><h2 id="安全点"><a href="#安全点" class="headerlink" title="安全点"></a>安全点</h2><p>当我们需要阻塞停止一条线程时，都需要在安全点停止，简单说安全点就是指当线程运行到这类位置时，堆对象状态是确定一致的，线程停止后，JVM可以安全地进行操作，如GC、偏向锁撒销等。<br>JVM对安全点的定义</p><ul><li>循环结束的末尾段</li><li>方法调用之后</li><li>抛出异常的位置</li><li>方法返回之前<br>当JVM需要发生GC、偏向锁撤销等操作时，如何才能让所有线程到达安全点阻塞或停止？</li><li>主动式中断(JVM采用的方式)：不中断线程，而是设置一个标志，而后让每条线程执行时主动轮询这个标志，当一个线程到达安全点后，发现中断标志为true时就自己中断挂起。</li><li>抢断式中断：先中断所有线程，如果发现线程未执行到安全点则恢复线程让其运行到安全点位置。</li></ul><h2 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h2><p>当Java程序需要停下所有用户线程时，某些线程可能处于中断或者休眠状态，从而无法响应JVM的中断请求走到安全点位置挂起了，所以出现了安全区域的概念。<br>安全区域是指一条线程执行到一段代码时，该区域的代码不会改变堆中对象的引用。在这区域内JVM可以安全地进行操作。当线程进入到该区域时需要先标识自己进入了，这样GC线程则不会管这些已标识的线程，当线程要离开这个区域时需要先判断可达性分析是否完成，如果完成了则往下执行，如果没有则需要原地等待到GC线程发出安全离开信息为止。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://juejin.cn/post/7065948181346910239">https://juejin.cn/post/7065948181346910239</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode</title>
+      <link href="/%E7%AE%97%E6%B3%95/algorithm/leetcode/8023b8741d45/"/>
+      <url>/%E7%AE%97%E6%B3%95/algorithm/leetcode/8023b8741d45/</url>
+      
+        <content type="html"><![CDATA[<h1 id="leetcode-1745"><a href="#leetcode-1745" class="headerlink" title="leetcode 1745"></a>leetcode 1745</h1><p>给你一个字符串<code>s</code>，如果可以将它分割成三个<code>非空</code>回文子字符串，那么返回<code>true</code>，否则返回<code>false</code>。</p><mark class="hl-label red">思路：</mark><mark class="hl-label pink">由于需要分割为三个非空子字符串，那么可以从第一个字符和最后一个字符下手，我们可以记录下来，以第一个字符开头的回文字符串，以最后一个字符结尾的回文字符串，然后再判断中间的字符串是否是回文字符串，由于分割非空的要求，需要保证中间的字符串存在。</mark><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">checkPartitioning</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    n = <span class="built_in">len</span>(s)</span><br><span class="line">    <span class="comment"># dp[i][j] 表示 s[i...j] 的字符串是否是回文字符串</span></span><br><span class="line">    dp = [[<span class="literal">True</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, n):</span><br><span class="line">            dp[i][j] = (s[i] == s[j]) &amp; dp[i+<span class="number">1</span>][j-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># start[] 表示以第一个字符开头，数组的值为回文字符串结尾的下标</span></span><br><span class="line">    start = []</span><br><span class="line">    <span class="comment"># end[] 表示以最后一个字符结尾，数组的值为回文字符串开头的下标</span></span><br><span class="line">    end = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n-<span class="number">1</span>):</span><br><span class="line">        t = s[:i]</span><br><span class="line">        <span class="keyword">if</span> t == t[::-<span class="number">1</span>]:</span><br><span class="line">            start.append(i-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        t = s[i:]</span><br><span class="line">        <span class="keyword">if</span> t == t[::-<span class="number">1</span>]:</span><br><span class="line">            end.append(i)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 注意 start 和 end都为有序，start从小到大，end从大到小</span></span><br><span class="line">    <span class="keyword">for</span> part1 <span class="keyword">in</span> start:</span><br><span class="line">        <span class="keyword">for</span> part2 <span class="keyword">in</span> end:</span><br><span class="line">            <span class="comment"># 如果中间没有字符串了，则直接跳出循环</span></span><br><span class="line">            <span class="keyword">if</span> part1 + <span class="number">1</span> &gt;= part2:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="comment"># 查看中间的字符串是否回文，如果回文，则说明可以分割为3个非空回文子字符串</span></span><br><span class="line">            <span class="keyword">if</span> dp[part1+<span class="number">1</span>][part2-<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis</title>
+      <link href="/Redis/Redis/redis/802e96468d9a/"/>
+      <url>/Redis/Redis/redis/802e96468d9a/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分库分表</title>
+      <link href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/61d9fe25d01b/"/>
+      <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/61d9fe25d01b/</url>
+      
+        <content type="html"><![CDATA[<p>阿里巴巴Java开发手册：<strong>单表行数超过500万行或者单表容量超过20GB，才推荐进行分表分库</strong></p><h1 id="为什么需要分表分库"><a href="#为什么需要分表分库" class="headerlink" title="为什么需要分表分库"></a>为什么需要分表分库</h1><ol><li>请求数太高</li><li>数据查询慢</li><li>数据量太大</li><li>单体架构：某张表遇到问题需要修复时，会影响整个库中的所有数据</li><li>MySQL的数据库瓶颈</li></ol><p>分库和分表是两个概念</p><h1 id="分表"><a href="#分表" class="headerlink" title="分表"></a>分表</h1><h2 id="垂直分表"><a href="#垂直分表" class="headerlink" title="垂直分表"></a>垂直分表</h2><p>结构不同，数据不同。<br>现在有一张表，总共43个字段，但是对于程序来说，一般经常使用的字段不过其中的十余个，而这些经常使用的字段则被称之为热点字段，假设此时这张表中的热点字段为18个，剩下的冷字段为25个，那么我们就可以根据冷热字段来对表进行拆分，拆分为18个字段一张表，26个字段一张表（含有一个映射键）</p><h2 id="水平分表"><a href="#水平分表" class="headerlink" title="水平分表"></a>水平分表</h2><p>结构相同，数据不同<br>现在有一张表，里面有三千万条数据记录，当基于该表去执行一条在索引上的复杂SQL时，也需要一定时间，至少会比1000万的数据表慢了好几倍，此时可以把这张3000W的表，拆为三张1000W的表。<br>对一张大表做了水平分表之后，咱们能够很好的控制单表的数据行数，3000W条数据的表和1000W条数据的表，查询速度其实不仅仅只是3倍的差距，数据过了千万级别时，数据量每向上增长一个量级，查询的开销也会呈直线性增长，因此做水平分表时，一般要求控制在500-1200W之间为一张表（阿里500-600w一张）。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>分表方案主要是针对单表字段过多或数据过多进行设计的，无论是垂直分表还是水平分表，都必须建立在单库压力不大，但是单表性能不够的情况下进行的</p><h1 id="分库"><a href="#分库" class="headerlink" title="分库"></a>分库</h1><h2 id="垂直分库"><a href="#垂直分库" class="headerlink" title="垂直分库"></a>垂直分库</h2><p>结构不同，数据不同<br>垂直分库，就是根据业务属性的不同，将单库中具备同一业务属性的表，全部单独拧出来，放在一个单独的库中存储，也就按业务特性将大库拆分为多个业务功能单一的小库，每个小库只为对应的业务提供服务，这样能够让数据存储层的吞吐量呈几何倍增长。</p><h2 id="水平分库"><a href="#水平分库" class="headerlink" title="水平分库"></a>水平分库</h2><p>结构相同，数据不同<br>经过垂直分库后，根据不同的业务类型，将访问压力分发到不同的库处理后，虽然在极大程度上提升了数据层的负荷能力，但如果某类业务的并发数依旧很高。通过水平拆分的方案，能够根据压力的不同，分配不同的机器数量，从而使得不同库的抗压性都能满足对应的业务需求，这也就类似于分布式&#x2F;微服务项目中，对单个服务做集群保证高可用的策略。<br>水平分库是基于一个节点，然后直接横向拓展，这也就意味着同一业务的数据库，各节点之间的库结构完全相同，但每个节点中的数据是否相同，这就要看你自己去决定了，一般情况下都是不同的，也就是不同节点的库会存储不同范围的数据。</p><h2 id="其他分库方案"><a href="#其他分库方案" class="headerlink" title="其他分库方案"></a>其他分库方案</h2><p><strong>主从方案&#x2F;读写分离</strong>，写请求发往主节点，读请求发往从节点<br><strong>多主方案</strong>，一般是双主方案</p><h1 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h1><p>对于分库方案</p><ol><li>优先考虑主从，主主</li><li>再考虑垂直分库</li><li>最后考虑水平分库</li></ol><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://juejin.cn/post/7168355448658395166#heading-22">https://juejin.cn/post/7168355448658395166#heading-22</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/uncategorized/hello-world/78086a1524d6/"/>
+      <url>/uncategorized/hello-world/78086a1524d6/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>表分区</title>
+      <link href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E5%88%86%E5%8C%BA/880c80509e5a/"/>
+      <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E5%88%86%E5%8C%BA/880c80509e5a/</url>
+      
+        <content type="html"><![CDATA[<h1 id="表分区的介绍"><a href="#表分区的介绍" class="headerlink" title="表分区的介绍"></a>表分区的介绍</h1><p>原本的表文件都是以完整的形式存储在磁盘中的，而表分区则是指将一张表的数据拆分成多个磁盘文件，然后放到磁盘中存储。<br>需要去检索一条数据时，无需对一个完整的数据文件从头到尾做扫描，而只需要对某个分区文件进行扫描，能够在一定程度上提高性能。</p><ul><li>相较于使用单个文件存储表数据，表分区技术可以打破单个磁盘分区的容量限制。</li><li>对于一些失效数据，如三年前的数据，可以通过快速删除分区的方式清理，效率十分高。</li><li>能够在一定程度上提升磁盘IO时，检索数据的性能，毕竟只需对一小片磁盘表文件做寻道。</li><li>支持聚合函数的并行执行，比如sum()、count()这类函数，可以分别统计各分区的数据做汇总。</li><li>带来更好的数据管理性和可用性，当一个表文件受损时，不会影响其他分区文件中的表数据。</li></ul><p>表分区只支持水平划分！！！</p><h1 id="表分区的方式"><a href="#表分区的方式" class="headerlink" title="表分区的方式"></a>表分区的方式</h1><h2 id="RANGE分区"><a href="#RANGE分区" class="headerlink" title="RANGE分区"></a>RANGE分区</h2><p>按范围进行分区</p><h2 id="LIST分区"><a href="#LIST分区" class="headerlink" title="LIST分区"></a>LIST分区</h2><p>枚举分区，为每个分区分配指定值，比如按照性别，男生一个分区，女生一个分区</p><h2 id="HASH分区"><a href="#HASH分区" class="headerlink" title="HASH分区"></a>HASH分区</h2><ol><li>常规哈希：基于某个整数型字段，直接做取模，最后根据余数来决定数据的分区。</li><li>线性哈希：基于某个字段哈希之后的哈希值，进行取模运算，最后根据余数来决定数据的分区。</li></ol><h2 id="KEY分区"><a href="#KEY分区" class="headerlink" title="KEY分区"></a>KEY分区</h2><ul><li>表中只存在主键或唯一字段时，分区键必须为主键&#x2F;唯一键的部分或全部字段，不允许选择其他字段。</li><li>表中主键、唯一字段同时存在时，分区键必须为主键和唯一键共有的部分或全部字段。</li><li>当表中不存在主键或唯一键时，分区键可以是除text、blob类型外的任意单个或多个字段。</li></ul><h2 id="SUB分区"><a href="#SUB分区" class="headerlink" title="SUB分区"></a>SUB分区</h2><p>基于表分区的结果进一步做分区处理</p><h2 id="COLUMNS分区"><a href="#COLUMNS分区" class="headerlink" title="COLUMNS分区"></a>COLUMNS分区</h2><p>使得range、list分区由多个字段组成，同时支持的字段类型也相对丰富</p><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://juejin.cn/post/7166500122166034469">https://juejin.cn/post/7166500122166034469</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>juc</title>
+      <link href="/Java/JUC/juc/e836a6b7c744/"/>
+      <url>/Java/JUC/juc/e836a6b7c744/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java并发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
