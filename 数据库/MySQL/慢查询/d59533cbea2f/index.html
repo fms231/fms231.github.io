@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>慢查询 | 冰红茶怪兽</title><meta name="author" content="fms231"><meta name="copyright" content="fms231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="慢查询指的是查询速度慢的查询语句，MySQL提供了慢查询日志功能，可以记录查询速度慢的查询语句，以便后续优化。使用下列命令查看慢查询日志是否开启 1show variables like &quot;slow_query_log&quot;; slow query log表示慢查询开启的状态slow_query_log_file表示慢查询日志存放的位置 如果没有开启慢查询日志，可以使用下列命令开启">
+<meta property="og:type" content="article">
+<meta property="og:title" content="慢查询">
+<meta property="og:url" content="https://fms231.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%85%A2%E6%9F%A5%E8%AF%A2/d59533cbea2f/index.html">
+<meta property="og:site_name" content="冰红茶怪兽">
+<meta property="og:description" content="慢查询指的是查询速度慢的查询语句，MySQL提供了慢查询日志功能，可以记录查询速度慢的查询语句，以便后续优化。使用下列命令查看慢查询日志是否开启 1show variables like &quot;slow_query_log&quot;; slow query log表示慢查询开启的状态slow_query_log_file表示慢查询日志存放的位置 如果没有开启慢查询日志，可以使用下列命令开启">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fms231.github.io/image/boqi.jpg">
+<meta property="article:published_time" content="2024-03-03T09:19:38.000Z">
+<meta property="article:modified_time" content="2025-03-10T12:18:19.659Z">
+<meta property="article:author" content="fms231">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fms231.github.io/image/boqi.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "慢查询",
+  "url": "https://fms231.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%85%A2%E6%9F%A5%E8%AF%A2/d59533cbea2f/",
+  "image": "https://fms231.github.io/image/boqi.jpg",
+  "datePublished": "2024-03-03T09:19:38.000Z",
+  "dateModified": "2025-03-10T12:18:19.659Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "fms231",
+      "url": "https://fms231.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/image/favicon.png"><link rel="canonical" href="https://fms231.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%85%A2%E6%9F%A5%E8%AF%A2/d59533cbea2f/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '慢查询',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/image/top.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/boqi.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-categories"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/top.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/logo.png" alt="Logo"><span class="site-name">冰红茶怪兽</span></a><a class="nav-page-title" href="/"><span class="site-name">慢查询</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-categories"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">慢查询</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-03T09:19:38.000Z" title="发表于 2024-03-03 17:19:38">2024-03-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-10T12:18:19.659Z" title="更新于 2025-03-10 20:18:19">2025-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>慢查询指的是查询速度慢的查询语句，MySQL提供了慢查询日志功能，可以记录查询速度慢的查询语句，以便后续优化。<br>使用下列命令查看慢查询日志是否开启</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> &quot;slow_query_log&quot;;</span><br></pre></td></tr></table></figure>
+<p>slow query log表示慢查询开启的状态<br>slow_query_log_file表示慢查询日志存放的位置</p>
+<p>如果没有开启慢查询日志，可以使用下列命令开启</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log <span class="operator">=</span> <span class="keyword">ON</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>show variables like &#39;long_query_time&#39;</code>命令，查看超过多少时间，才记录慢查询日志<br>可以使用<code>set global long_query_time = 1;</code>设置超过1秒的查询记录慢查询日志，单位是秒，可以自己设置，0表示所有查询都记录慢查询日志。<br>可以通过上面两个命令结合，查看慢查询SQL的位置，以及慢查询日志记录的时间。</p>
+<p>当定位出查询效率低的SQL后，可以使用explain查看SQL的执行计划。<br><img src="/image/MySQL/explain.png" alt="explain"></p>
+<ul>
+<li>type：连接类型，查看索引执行情况的一个重要指标。 system &gt; const &gt; eq_ref &gt; ref &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL<ul>
+<li>system：这种类型要求数据库表中只有一条数据，是const类型的一个特例，一般情况下是不会出现的。</li>
+<li>const：通过一次索引就能找到数据，一般用于主键或唯一索引作为条件，这类扫描效率极高，，速度非常快。</li>
+<li>eq_ref：常用于主键或唯一索引扫描，一般指使用主键的关联查询</li>
+<li>ref : 常用于非主键和唯一索引扫描。</li>
+<li>ref_or_null：这种连接类型类似于ref，区别在于MySQL会额外搜索包含NULL值的行</li>
+<li>index_merge：使用了索引合并优化方法，查询使用了两个以上的索引。</li>
+<li>unique_subquery：类似于eq_ref，条件用了in子查询</li>
+<li>index_subquery：区别于unique_subquery，用于非唯一索引，可以返回重复值。</li>
+<li>range：常用于范围查询，比如：between … and 或 In 等操作</li>
+<li>index：全索引扫描</li>
+<li>ALL：全表扫描</li>
+</ul>
+</li>
+<li>rows：找到我们所需的记录，需要读取的行数，对于InnoDB表，这个值是一个估计值</li>
+<li>filtered：百分比，表里符合条件的记录树的百分比。表示存储引擎返回的数据在经过过滤后，剩下的满足条件的记录数量的比例</li>
+<li>extra：包含MySQL解决查询的详细信息，常见的值有：<ul>
+<li>Using filesort：MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取，这个过程称为“文件排序”</li>
+<li>Using temporary：MySQL需要创建一个临时表来存储结果集，常见于排序和分组查询</li>
+<li>Using index：表示相应的select操作中使用了覆盖索引，避免访问了表的数据行，效率较高</li>
+<li>Using where：表示MySQL服务器从存储引擎中获取记录后再进行过滤，这是一个非常好的标志，表示MySQL服务器在存储引擎检索行后，再进行条件过滤，而不是取出所有数据后在服务器层过滤</li>
+<li>Using join buffer：表示使用了连接缓存</li>
+<li>Using index condition：表示使用了索引过滤数据</li>
+</ul>
+</li>
+<li>key：显示MySQL实际使用的索引，如果为null，则没有使用索引</li>
+</ul>
+<p>explain只是看到SQL的预估执行计划，如果要了解SQL真正的执行线程状态以及消耗的时间，需要使用profiling，profiling: 分析执行耗时，默认是关闭，可以使用<code>show variables like &#39;%profil%&#39;</code>查看是否开启。开启profiling参数后，后续执行的SQL语句都会记录其资源开销，包括IO，上下文切换，CPU，内存等等，我们可以根据这些开销进一步分析当前慢SQL的瓶颈再进一步进行优化。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> profiling <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- 开启profiling</span></span><br><span class="line"><span class="keyword">show</span> profiles; <span class="comment">-- 查看所有的SQL分析</span></span><br><span class="line"><span class="keyword">show</span> profile <span class="keyword">for</span> query <span class="number">1</span>; <span class="comment">-- 查看id为1的SQL的分析</span></span><br><span class="line"><span class="keyword">show</span> profile cpu, block io <span class="keyword">for</span> query <span class="number">1</span>; <span class="comment">-- 查看id为1的SQL的CPU和IO分析</span></span><br></pre></td></tr></table></figure>
+
+<p>profile只能查看SQL的执行耗时，无法查看SQL真正执行的过程信息，我们可以使用Optimizer Trace，跟踪执行语句的解析优化执行的全过程。可以使用<code>set optimizer_trace = &quot;enabled=on&quot;</code>开启，输入一条SQL语句，然后使用<code>select * from information_schema.OPTIMIZER_TRACE</code>查看那条SQL的执行过程。<br>可以看到三个阶段，<code>join_preparation</code>表示准备阶段，<code>join_optimization</code>表示分析阶段，<code>join_execution</code>表示执行阶段。</p>
+<p>最后确认问题，采取措施</p>
+<ul>
+<li>多数慢SQL都跟索引有关，比如不加索引，索引不生效、不合理等，这时候，我们可以优化索引。</li>
+<li>我们还可以优化SQL语句，比如一些in元素过多问题（分批），深分页问题（基于上一次数据过滤等），进行时间分段查询</li>
+<li>SQl没办法很好优化，可以改用ES的方式，或者数仓。</li>
+<li>如果单表数据量过大导致慢查询，则可以考虑分库分表</li>
+<li>如果数据库在刷脏页导致慢查询，考虑是否可以优化一些参数，跟DBA讨论优化方案</li>
+<li>如果存量数据量太大，考虑是否可以让部分数据归档</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://fms231.github.io">fms231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://fms231.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%85%A2%E6%9F%A5%E8%AF%A2/d59533cbea2f/">https://fms231.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%85%A2%E6%9F%A5%E8%AF%A2/d59533cbea2f/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://fms231.github.io" target="_blank">冰红茶怪兽</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a></div><div class="post-share"><div class="social-share" data-image="/image/boqi.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E5%88%86%E5%8C%BA/880c80509e5a/" title="表分区"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">表分区</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a><a class="pagination-related" href="/%E7%AE%97%E6%B3%95/algorithm/palindrome/f5ccec71c697/" title="回文字符串"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">回文字符串</div></div><div class="info-2"><div class="info-item-1">leetcode 1745给你一个字符串s，如果可以将它分割成三个非空回文子字符串，那么返回true，否则返回false。 思路： 由于需要分割为三个非空子字符串，那么可以从第一个字符和最后一个字符下手，我们可以记录下来，以第一个字符开头的回文字符串，以最后一个字符结尾的回文字符串，然后再判断中间的字符串是否是回文字符串，由于分割非空的要求，需要保证中间的字符串存在。 12345678910111213141516171819202122232425262728293031323334def checkPartitioning(self, s: str) -&gt; bool:    n = len(s)    # dp[i][j] 表示 s[i...j] 的字符串是否是回文字符串    dp = [[True for _ in range(n)] for _ in range(n)]    for i in range(n-1,-1,-1):        for j in range(i+1, n):            dp[i][j] = (s[i] == s[j])...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/61d9fe25d01b/" title="分库分表"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-03</div><div class="info-item-2">分库分表</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a><a class="pagination-related" href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E8%A1%A8%E5%88%86%E5%8C%BA/880c80509e5a/" title="表分区"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-03</div><div class="info-item-2">表分区</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/boqi.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">fms231</div><div class="author-info-description">运气</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/fms231"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录所学的内容</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><div id="runtime" style="display:inline-block"></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
